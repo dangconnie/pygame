@@ -11,6 +11,12 @@ from hero import Hero;
 # get the check_events function from the game_functions module
 from game_functions import check_events;
 
+# from pygame, get the sprite stuff and groupcollide to handle collisions
+from pygame.sprite import Group, groupcollide;
+
+# get our enemy class
+from enemy import Enemy;
+
 # initialize all pygame modules!
 pygame.init();
 
@@ -31,6 +37,10 @@ game_settings = Settings();
 screen = pygame.display.set_mode(game_settings.screen_size);
 # game settings now available inside main
 hero = Hero(screen, game_settings);
+
+# Make a group of enemies
+enemies = Group();
+enemies.add(Enemy(screen, game_settings));
 
 
 # This loop will run forever
